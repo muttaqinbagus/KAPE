@@ -32,4 +32,12 @@ public interface ApiService {
     @GET("dosen/thread/detail/{thread}")
     Call<ModelDetailThread> getThreadDetail(@Path("thread") String thread);
 
+    @GET("dosen/thread/comment/dosen/{thread}")
+    Call<List<ModelKomen>> getKomen(@Path("thread") String thread);
+
+    @FormUrlEncoded
+    @POST("dosen/comment/create/{thread}")
+    Call<ModelKomen> addComent (@Field("comment") String comment, @Field("user_id") String user_id, @Path("thread") String thread);
+
+
 }

@@ -14,57 +14,53 @@ import androidx.cardview.widget.CardView;
 
 import java.util.ArrayList;
 
-public class ListDetailThread extends ArrayAdapter <ModelDetailThread> {
-
-    private ArrayList<ModelDetailThread> list;
+public class ListKomen extends ArrayAdapter <ModelKomen> {
+    private ArrayList<ModelKomen> list;
     private LayoutInflater inflater;
     private int res;
 
-    public ListDetailThread(@NonNull Context context, int resource, ArrayList<ModelDetailThread> list) {
+    public ListKomen(@NonNull Context context, int resource, ArrayList<ModelKomen> list) {
         super(context, resource, list);
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.res = resource;
     }
-
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
-        ListDetailThread.MyHolder holder = null;
+        ListKomen.MyHolder holder = null;
 
         if (convertView == null) {
 
             convertView = inflater.inflate(res, parent, false);
 
-            holder = new ListDetailThread.MyHolder();
+            holder = new ListKomen.MyHolder();
 
 //            holder.ID = (TextView) convertView.findViewById(R.id.id);
-            holder.JUDULTHREAD = (TextView) convertView.findViewById(R.id.detail_judul);
             holder.NAMA = (TextView) convertView.findViewById(R.id.detail_nama);
-//            holder.USERNAME = (TextView) convertView.findViewById(R.id.usser);
-            holder.KET = (TextView) convertView.findViewById(R.id.detail_keterangan);
-            holder.ThreadView = (CardView) convertView.findViewById(R.id.cardview_detail_thread);
+            holder.KOMEN = (TextView) convertView.findViewById(R.id.detail_komen);
+//            holder.CREATED = (TextView) convertView.findViewById(R.id.detail_created);
+            holder.Komen = (CardView) convertView.findViewById(R.id.cardview_detail_komen);
 
             convertView.setTag(holder);
 
         } else {
 
-            holder = (ListDetailThread.MyHolder) convertView.getTag();
+            holder = (ListKomen.MyHolder) convertView.getTag();
         }
 
-        holder.JUDULTHREAD.setText(list.get(position).getJudulThread());
-        holder.NAMA.setText(list.get(position).getNamaMahasiswa());
-//        holder.USERNAME.setText(list.get(position).getUsername());
-        holder.KET.setText(list.get(position).getKet());
-        holder.ThreadView.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+        holder.NAMA.setText(list.get(position).getNama()+ "" + list.get(position).getCreated_at()+" "+list.get(position).getUsername());
+        holder.KOMEN.setText(list.get(position).getComment());
+//        holder.CREATED.setText(list.get(position).getCreated_at()+" "+list.get(position).getUsername());
+        holder.Komen.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                final Context context = view.getContext();
-
-                Intent intent = new Intent(context, Komen.class);
-                intent.putExtra("nama_materi", String.valueOf(list.get(position).getIdThread()));
-                ((AppCompatActivity) context).startActivity(intent);
+//                final Context context = view.getContext();
+//
+//                Intent intent = new Intent(context, ThreadView.class);
+//                intent.putExtra("nama_materi", String.valueOf(list.get(position).getIdThread()));
+//                ((AppCompatActivity) context).startActivity(intent);
 
             }
         }));
@@ -78,7 +74,7 @@ public class ListDetailThread extends ArrayAdapter <ModelDetailThread> {
     }
 
     @Override
-    public void remove(ModelDetailThread object) {
+    public void remove(ModelKomen object) {
         super.remove(object);
     }
 
@@ -97,11 +93,12 @@ public class ListDetailThread extends ArrayAdapter <ModelDetailThread> {
         //TextView ID;
         TextView JUDULTHREAD;
         TextView NAMA;
-        TextView USERNAME;
-        TextView KET;
+        TextView KOMEN;
+        TextView CREATED;
+        TextView USSERNAME;
 
-        CardView ThreadView;
+
+        CardView Komen;
 
     }
 }
-

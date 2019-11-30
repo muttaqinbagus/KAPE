@@ -3,6 +3,8 @@ package com.example.labinformatika;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ public class ThreadDetail extends AppCompatActivity {
     String id_thread;
 
     TextView JUDULTHREAD, NAMA, KET;
+    Button btn_komendosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,18 @@ public class ThreadDetail extends AppCompatActivity {
         setContentView(R.layout.detail_thread);
 
         id_thread = getIntent().getStringExtra("id_thread");
+
+        btn_komendosen = (Button) findViewById(R.id.komendosen);
+        btn_komendosen.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThreadDetail.this, Komen.class);
+                intent.putExtra("id_thread", id_thread);
+                Toast.makeText(ThreadDetail.this, id_thread + " CEK DATAaaaaaaaa", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
 
         JUDULTHREAD = (TextView) findViewById(R.id.detail_judul);
         NAMA = (TextView) findViewById(R.id.detail_nama);

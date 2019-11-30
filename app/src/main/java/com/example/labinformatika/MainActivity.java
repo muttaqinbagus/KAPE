@@ -8,7 +8,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String ROOT_URL = "http://192.168.1.9/lab-forum/public/api/";
+    public static final String ROOT_URL = "http://192.168.1.5/lab-forum/public/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

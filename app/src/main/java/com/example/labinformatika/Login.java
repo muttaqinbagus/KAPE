@@ -39,10 +39,20 @@ public class Login extends AppCompatActivity {
 
     ProgressDialog loading;
 
+    int user_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("data_user", MODE_PRIVATE);
+        user_id = sharedPreferences.getInt("kirim_id", 0);
+
+        if(!String.valueOf(user_id).isEmpty()){
+            startActivity(new Intent(Login.this, ThreadPraktikum.class));
+            finish();
+        }
 
         log_ussername = (EditText) findViewById(R.id.textusername);
         log_password = (EditText) findViewById(R.id.textpassword);

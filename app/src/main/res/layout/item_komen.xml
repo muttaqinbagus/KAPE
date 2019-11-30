@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_list_thread"
+        android:id="@+id/cardview_detail_komen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -20,35 +19,48 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/judul_thread"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="THREAD"
-                android:textSize="20dp"
-                android:layout_margin="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                />
-            <TextView
-                android:id="@+id/keterangan"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="KETERANGAN"
-                android:textSize="15dp"
-                android:layout_margin="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="40dp"
-                />
-            <TextView
-                android:id="@+id/nama_mahasiswa"
+                android:id="@+id/detail_nama"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="NAMA"
                 android:textSize="10dp"
                 android:layout_margin="10dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                />
+
+<!--            <TextView-->
+<!--                android:id="@+id/detail_created"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="CREATED"-->
+<!--                android:textSize="20dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/detail_username"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="username"-->
+<!--                android:textSize="20dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                />-->
+            <TextView
+                android:id="@+id/detail_komen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="KOMEN"
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
                 />
+
 
         </LinearLayout>
 
